@@ -102,7 +102,6 @@ fn find_connections(grid: &Vec<Vec<PipeType>>, pos: &Position) -> Vec<Position> 
 
 fn main() {
     let (grid, start_position) = create_grid();
-    let mut highest_distance = 0;
 
     let connections = find_connections(&grid, &start_position);
     let mut visited_cells: Vec<Position> = Vec::new();
@@ -110,12 +109,12 @@ fn main() {
 
     let mut current_cell = connections[0];
 
+    let mut highest_distance = 1; // Accounting for first step in line above
+
     loop {
         visited_cells.push(current_cell);
         highest_distance += 1;
         let connections = find_connections(&grid, &current_cell);
-        println!("Current position: {:?}, Type: {:?}", current_cell, grid[current_cell.y as usize][current_cell.x as usize]);
-        println!("Connections: {:?}, {:?}", connections[0], connections[1]);
         if visited_cells.contains(&connections[0]) {
             current_cell = connections[1]
         } else {
@@ -123,7 +122,6 @@ fn main() {
         };
 
         if grid[current_cell.y as usize][current_cell.x as usize] == PipeType::Start {
-            highest_distance += 1;
             break;
         }
         
