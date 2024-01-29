@@ -16,15 +16,15 @@ fn find_node(goal: &str, nodes: &Vec<Node>) -> Option<Node> {
     return None;
 }
 
-fn find_start_nodes(nodes: &Vec<Node>) -> Vec<Node> {
-    let mut start_nodes: Vec<Node> = Vec::new();
-    for node in nodes {
-        if node.name.chars().collect::<Vec<char>>()[2] == 'A' {
-            start_nodes.push(node.clone())
-        }
-    }
-    return start_nodes;
-}
+// fn find_start_nodes(nodes: &Vec<Node>) -> Vec<Node> {
+//     let mut start_nodes: Vec<Node> = Vec::new();
+//     for node in nodes {
+//         if node.name.chars().collect::<Vec<char>>()[2] == 'A' {
+//             start_nodes.push(node.clone())
+//         }
+//     }
+//     return start_nodes;
+// }
 
 fn part1() {
     let file_path = "input.txt";
